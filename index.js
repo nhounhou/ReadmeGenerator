@@ -6,6 +6,7 @@ const inquirer = require('inquirer'),
 
 var dataArray=[],
     myData='',
+    myScreenShot=[],
     myResults={
         githubName: '',
         userName: '',
@@ -26,6 +27,8 @@ var dataArray=[],
         }
     ]).then(repUser => {
         myResults.userName=repUser.userName;
+        // console.log(repUser.userName);
+
     axios({
         method: "get",
         url: `https://api.github.com/users/${repUser.userName}/repos`,
@@ -35,7 +38,7 @@ var dataArray=[],
             "Accept": "application/vnd.github.mercy-preview+json" // MUST ADD TO INCLUDE TOPICS
         }
     }).then(response => {
-        // console.log(response.data);
+        console.log(response.data);
         let folderArray=[];
         for (i=0;i<response.data.length;i++){
             folderArray.push(response.data[i].name);
@@ -93,7 +96,9 @@ var dataArray=[],
                 // console.log(myResults.repo);
                 inquirer.prompt(questions).then(rep => {
                     myResults.answer=rep;
-                    console.log(myResults);
+                    // console.log(myResults);
+                    // ask(myScreenShot);
+
                     // all data are in the object myResults
                     // time to build the readme file
                     buildReadme(myResults);
@@ -155,9 +160,49 @@ ${obj.answer.command}
 ![JS](https://img.shields.io/badge/JavaScript-${JVS.toFixed(1)}%25-orange)
 ![HTML](https://img.shields.io/badge/JSon-${CSS.toFixed(1)}%25-brightgreen?style=plastic&logo=HTML5)
 ![CSS](https://img.shields.io/badge/JSon-${HTML.toFixed(1)}%25-blue?style=plastic&logo=CSS3)
+`
 
+    if (myScreenShot.length>0){
+        readmeLine +=`
 ## Screen Shots
 `
+        for (const image of myScreenShot){
+            readmeLine +=`
+![image](${image})  `
+        };
+    };
     fs.writeFileSync('./example/README.md',readmeLine);
     // console.log(readmeLine);
+};
+
+function ask(arr){
+    inquirer.prompt([
+        {
+            type: 'list',
+            message: 'Do you want to Add a screen shot?',
+            choices: ['Yes','No'],
+            name: 'add',
+            default: 'No'
+        }
+    ]).then(images => {
+        if (images.add==='Yes'){
+            inquirer.prompt([
+                {
+                    type: 'input',
+                    message: 'Complete Path to the image please?',
+                    name: 'path',
+                    default: '/assets'
+                }
+            ]).then(screen => {
+                arr.push(screen.path);
+                ask();
+            });
+        } else {
+            // console.log(arr);
+            // all data are in the object myResults
+            // time to build the readme file
+            buildReadme(myResults);
+            return;
+        };
+    });
 };
