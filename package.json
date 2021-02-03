@@ -1,0 +1,23 @@
+{
+  "name": "readmegenerator",
+  "version": "1.0.0",
+  "description": "readme.md generator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nhounhou/ReadmeGenerator.git"
+  },
+  "author": "michel nh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nhounhou/ReadmeGenerator/issues"
+  },
+  "homepage": "https://github.com/nhounhou/ReadmeGenerator#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "inquirer": "^7.3.3"
+  }
+}
