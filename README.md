@@ -70,3 +70,4 @@ The result is a README.md file that is generated in the ```EXAMPLE``` folder in 
 Adding a recursive/looping function to add one or several screen shots to the readme file.
 
 ## Demonstration
+![readme GIF](./readmeGen.gif)
