@@ -48,7 +48,7 @@ npm i axios
 Because I'm calling the Github API thru the  Axios module [Axios](https://www.npmjs.com/package/axios), an API KEY is needed.
 You can request your API KEY thru the following link [Creating a personnal access token](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token).  
 But Because Github doesn't allowed the API Key (or token) to be acces to anybody, it not allowed to have it push in the repo folder.  
-So I was able to create an environment vatriable with the node.js module `DOTENV`.
+So I was able to create an environment vatriable with the node.js module [`DOTENV`](https://www.npmjs.com/package/dotenv).
 On your side, if you wish top use the README GENERATOR tool, after cloning the repo, you will need to change the variable `process.env.API_KEY` (2 lines in the `index.js` file) by the value of the token that you have created.
 
 ## Launch the tool
