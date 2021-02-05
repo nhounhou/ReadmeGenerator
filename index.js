@@ -1,6 +1,6 @@
-const inquirer = require('inquirer'),
+const dotenv = require('dotenv').config({path: __dirname+'/config.env'}),
+    inquirer = require('inquirer'),
     fs = require('fs');
-    config = require('./config'),
     questions = require('./questions'),
     axios = require('axios');
 
@@ -18,12 +18,14 @@ var dataArray=[],
         answer: {},
     };
 
+    // console.log(dotenv.parsed.API_KEY);
+
     inquirer.prompt([
         {
             type: 'input',
             message: 'What is your Github UserName',
             name: 'userName',
-            default: `${config.githubUsername}`
+            default: `nhounhou`
         }
     ]).then(repUser => {
         myResults.userName=repUser.userName;
@@ -33,12 +35,12 @@ var dataArray=[],
         method: "get",
         url: `https://api.github.com/users/${repUser.userName}/repos`,
         headers: {
-            Authorization: `Bearer ${config.githubToken}`,
+            Authorization: `Bearer ${dotenv.parsed.API_KEY}`,
             "Content-Type": "application/json",
             "Accept": "application/vnd.github.mercy-preview+json" // MUST ADD TO INCLUDE TOPICS
         }
     }).then(response => {
-        console.log(response.data);
+        // console.log(response.data);
         let folderArray=[];
         for (i=0;i<response.data.length;i++){
             folderArray.push(response.data[i].name);
@@ -71,7 +73,7 @@ var dataArray=[],
             //     // url: `https://api.github.com/repos/${config.githubUsername}/${link}/${name}`,
                 url: `${myData.languages_url}`,
                 headers: {
-                    Authorization: `Bearer ${config.githubToken}`,
+                    Authorization: `Bearer ${dotenv.parsed.API_KEY}`,
                     "Content-Type": "application/json",
                     "Accept": "application/vnd.github.mercy-preview+json" // MUST ADD TO INCLUDE TOPICS
                 }
@@ -150,10 +152,10 @@ ${obj.answer.command}
     };
 
     // build the languages icones based on the bytes quantities provide by Axios Github API call
-    const totalBytes = obj.JavaScript + obj.CSS + obj.HTML;
-    const JVS = (obj.JavaScript / totalBytes) * 100;
-    const CSS = (obj.CSS / totalBytes) * 100;
-    const HTML = (obj.HTML / totalBytes) * 100;
+    const totalBytes = obj.JavaScript + obj.CSS + obj.HTML || 0;
+    const JVS = (obj.JavaScript / totalBytes) * 100 || 0;
+    const CSS = (obj.CSS / totalBytes) * 100 || 0;
+    const HTML = (obj.HTML / totalBytes) * 100 || 0;
     readmeLine += `
 
 ## Languages

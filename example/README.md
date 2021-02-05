@@ -1,5 +1,5 @@
 
-# PasswordGenerator
+# Portfolio
 by Michel Nhouyvanisvong
 
 ## Table of Contents
@@ -12,8 +12,9 @@ by Michel Nhouyvanisvong
 - [Screen Shots](#screen-shots)
 
 ## Description
-Password Generator web Application
-with criteria selection made by user form validation
+portfolio
+first homework that present us with HTML CSS
+and responsive windows
 
 ## Install Command
 ```
@@ -26,15 +27,13 @@ node index
 ```
 
 ## Links
-[Repository Folder](https://github.com/nhounhou/PasswordGenerator)  
-[Web Application](https://nhounhou.github.io/PasswordGenerator)
+[Repository Folder](https://github.com/nhounhou/Portfolio)  
+[Web Application](https://nhounhou.github.io/Portfolio)
 
 ## Licences
 ![MIT](https://img.shields.io/badge/MIT-blue)
 
 ## Languages
-![JS](https://img.shields.io/badge/JavaScript-51.1%25-orange)
-![HTML](https://img.shields.io/badge/JSon-27.1%25-brightgreen?style=plastic&logo=HTML5)
-![CSS](https://img.shields.io/badge/JSon-21.7%25-blue?style=plastic&logo=CSS3)
-
-## Screen Shots
+![JS](https://img.shields.io/badge/JavaScript-NaN%25-orange)
+![HTML](https://img.shields.io/badge/JSon-NaN%25-brightgreen?style=plastic&logo=HTML5)
+![CSS](https://img.shields.io/badge/JSon-NaN%25-blue?style=plastic&logo=CSS3)

@@ -5,6 +5,7 @@ Professional README Generator
 - [The Homework](#the-homework)
 - [Acceptance Criteria](#acceptance-criteria)
 - [Installation of Depandencies](#installation-of-depandencies)
+- [Environment Variables](#environment-variables)
 - [Launch the Tool](#launch-the-tool)
 - [Tool Functionalities](#tool-functionalities)
 - [Still to Come](#still-to-come)
@@ -42,6 +43,13 @@ npm init -y
 npm i inquirer
 npm i axios
 ```
+
+## Environment Variables
+Because I'm calling the Github API thru the  Axios module [Axios](https://www.npmjs.com/package/axios), an API KEY is needed.
+You can request your API KEY thru the following link [Creating a personnal access token](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token).  
+But Because Github doesn't allowed the API Key (or token) to be acces to anybody, it not allowed to have it push in the repo folder.  
+So I was able to create an environment vatriable with the node.js module `DOTENV`.
+On your side, if you wish top use the README GENERATOR tool, after cloning the repo, you will need to change the variable `process.env.API_KEY` (2 lines in the `index.js` file) by the value of the token that you have created.
 
 ## Launch the tool
 At the command line prompt:
