@@ -32,7 +32,12 @@ const questionList=[
         message: 'Add any Licence',
         name: 'licence',
         choices: ['MIT', 'Apache-2.0', 'ODBL-1.0', 'None']
-    }
+    },
+    {
+        type: 'input',
+        message: 'What is your email adress?',
+        name: 'email'
+    },
 ];
 
 module.exports = questionList;

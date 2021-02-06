@@ -140,7 +140,9 @@ ${obj.answer.command}
 
 ## Links
 [Repository Folder](${obj.repo})  
-[Web Application](https://${obj.userName}.github.io/${obj.githubName})
+[Web Application](https://${obj.userName}.github.io/${obj.githubName})  
+For questions click the following link:  
+[Email](mailto:${obj.answer.email}?subject=[GitHub]%20Readme%20Generator%20Questions)  
 
 ## Licences
 `
